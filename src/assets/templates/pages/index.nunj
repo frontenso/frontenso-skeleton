@@ -24,7 +24,7 @@
       </section>
       <section style="margin-top: 60px;">
         <h3 style="margin-bottom: 20px;">Vector image example (using SVG sprite)</h3>
-        <svg style="fill: #111; width: 80px; height: 80px; background-color: red;">
+        <svg style="fill: #111; width: 80px; height: 80px;">
           <use xlink:href="#icon-logo-example"></use>
         </svg>
       </section>
