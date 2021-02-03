@@ -17,7 +17,7 @@ export default function server() {
     notify: false,
     open: false,
     port: 9000,
-    logPrefix: 'LD.Starter',
+    logPrefix: 'skeleton',
     files: watchFiles,
   });
 }

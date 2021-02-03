@@ -1,7 +1,7 @@
 {
-  "name": "ld.starter",
+  "name": "skeleton",
   "version": "1.0.0",
-  "description": "A non-SPA website boilerplate",
+  "description": "A template for static markup projects.",
   "scripts": {
     "start": "gulp",
     "build": "cross-env NODE_ENV=production gulp production",

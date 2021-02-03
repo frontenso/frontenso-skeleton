@@ -1,16 +1,16 @@
-# LD.Starter
+# A template for static markup projects.
 
 ## Getting started
 
 #### 1. Install dependencies:
 
-With `yarn` (quicker)
+With `yarn`
 
 ```
 yarn install
 ```
 
-or with `npm` (slower):
+or with `npm`:
 
 ```
 npm install
@@ -50,7 +50,7 @@ yarn build
 yarn zip
 ```
 
-## Project Structure
+## Folder Structure
 
 It's not mandatory but considered effective for many reasons to decompose the UI into separate, less coupled components.
 
