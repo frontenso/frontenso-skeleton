@@ -102,7 +102,7 @@ It is possible to automatically keep your SVG files for the project inside a sin
 <svg><use xlink:href="#icon-some-vector-image"></use></svg>
 ```
 
-Keep in mind that, in doing so, the SVG file `some-vector-image.svg` should located in the `src/assets/svg` directory. You can also set, for example, `fill` or `stroke` to this element on the page, provided that these attributes are not set inside the SVG file.
+Keep in mind that, in doing so, the SVG file `some-vector-image.svg` should be located in the `src/assets/svg` directory. You can also set, for example, `fill` or `stroke` for this element on the page by using CSS selectors (so without setting them inside the SVG file).
 
 ## The sprite file for raster images
 
@@ -120,11 +120,11 @@ For retina images, you can use the `sr` mixin. Please, keep in mind that you nee
 
 The images should be kept inside the `src/assets/images/sprites` in `png` format.
 
-## Inlining images or SVG into HTML or CSS
+## Inlining raster or svg images into HTML
 
 <b>Attention!</b> The files, which should be inlined, have to seat in the `src/assets/images/inline` directory.
 
-### В SASS
+### Inlining raster or svg images in CSS
 
 The `postcss-assets` plugin allows to inline images into CSS code in Base64 encoding and as is for SVG files:
 
@@ -146,7 +146,7 @@ height: height('some-image.png')
 background-size: size('some-image.png')
 ```
 
-### Inside Nunjucks templates
+### Inlining images inside Nunjucks templates
 
 ```
 <img src="{% inline 'some-image.png' %}" alt="Some image" />
