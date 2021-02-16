@@ -11,10 +11,11 @@ import zip from './gulp-tasks/zip';
 import watch from './gulp-tasks/watch';
 import server from './gulp-tasks/server';
 import video from './gulp-tasks/video';
+import publicAssets from './gulp-tasks/public';
 
 gulp.task(
   'build',
-  gulp.parallel(html, styles, fonts, images, svg, video, webpack)
+  gulp.parallel(html, styles, fonts, images, svg, video, publicAssets, webpack)
 );
 
 gulp.task('production', gulp.series(clean, 'build', assetsVersion));

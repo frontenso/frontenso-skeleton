@@ -7,6 +7,7 @@ import fonts from './fonts';
 import images from './images';
 import svg from './svg';
 import video from './video';
+import publicAssets from './public';
 
 export default function watch() {
   gulpWatch(PATHS.watch.nunj, html);
@@ -15,4 +16,5 @@ export default function watch() {
   gulpWatch([PATHS.watch.images], images);
   gulpWatch([PATHS.watch.svg], svg);
   gulpWatch([PATHS.watch.videos], video);
+  gulpWatch([PATHS.watch.public], publicAssets);
 }
