@@ -1,19 +1,27 @@
-class ScrollLocker {
-  constructor() {
-    if (typeof document === 'undefined') {
-      return;
-    }
-
-    this.element = document.body;
+/**
+ *
+ * @returns {{unlock: function, lock: function} | null}
+ * @constructor
+ */
+function ScrollLocker() {
+  if (typeof document == 'undefined') {
+    return null;
   }
 
-  lock() {
-    this.element.style.overflow = 'hidden';
+  const element = document.body;
+
+  function lock() {
+    element.style.overflow = 'hidden';
   }
 
-  unlock() {
-    this.element.style.overflow = '';
+  function unlock() {
+    element.style.overflow = '';
   }
+
+  return {
+    lock,
+    unlock,
+  };
 }
 
 const scrollLocker = new ScrollLocker();
