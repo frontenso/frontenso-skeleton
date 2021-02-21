@@ -1,22 +1,22 @@
-import gulp from 'gulp';
-import nunjucksRender from 'gulp-nunjucks-api';
-import notifier from 'node-notifier';
-import plumber from 'gulp-plumber';
-import beautify from 'gulp-jsbeautifier';
-import minifyInline from 'gulp-minify-inline-scripts';
-import gulpif from 'gulp-if';
-import log from 'fancy-log';
-import colors from 'ansi-colors';
-import htmlValidator from 'gulp-w3c-html-validator';
-import through2 from 'through2';
+const gulp = require('gulp');
+const nunjucksRender = require('gulp-nunjucks-api');
+const notifier = require('node-notifier');
+const plumber = require('gulp-plumber');
+const beautify = require('gulp-jsbeautifier');
+const minifyInline = require('gulp-minify-inline-scripts');
+const gulpif = require('gulp-if');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
+const htmlValidator = require('gulp-w3c-html-validator');
+const through2 = require('through2');
 
-import { PRODUCTION } from '../config';
-import PATHS from '../paths';
-import * as extensions from '../src/assets/templates/lib/extensions.js';
-import filters from '../src/assets/templates/lib/filters.js';
-import functions from '../src/assets/templates/lib/functions.js';
+const PRODUCTION = require('../config').PRODUCTION;
+const PATHS = require('../paths');
+const extensions = require('../src/assets/templates/lib/extensions.js');
+const filters = require('../src/assets/templates/lib/filters.js');
+const functions = require('../src/assets/templates/lib/functions.js');
 
-export default function html() {
+module.exports = function html() {
   delete require.cache[require.resolve('../global-data.json')];
   const globalData = require('../global-data.json');
 
@@ -81,4 +81,4 @@ export default function html() {
     )
     .pipe(gulpif(PRODUCTION, minifyInline()))
     .pipe(gulp.dest(PATHS.build.html));
-}
+};

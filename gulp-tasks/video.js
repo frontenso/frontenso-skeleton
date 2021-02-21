@@ -1,7 +1,7 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
 
-import PATHS from '../paths';
+const PATHS = require('../paths');
 
-export default function video() {
+module.exports = function video() {
   return gulp.src(PATHS.src.videos).pipe(gulp.dest(PATHS.build.videos));
-}
+};

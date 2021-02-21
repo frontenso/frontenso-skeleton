@@ -1,7 +1,7 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
 
-import PATHS from '../paths';
+const PATHS = require('../paths');
 
-export default function publicAssets() {
+module.exports = function publicAssets() {
   return gulp.src(PATHS.src.public).pipe(gulp.dest(PATHS.build.public));
-}
+};

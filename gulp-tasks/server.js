@@ -1,14 +1,14 @@
-import PATHS from '../paths';
-
 const browserSync = require('browser-sync').create();
 
-let watchFiles = [
+const PATHS = require('../paths');
+
+const watchFiles = [
   PATHS.build.styles + '*.css',
   PATHS.build.html + '/*.html',
   PATHS.build.scripts + '*.js',
 ];
 
-export default function server() {
+module.exports = function server() {
   browserSync.init({
     server: {
       baseDir: './build',
@@ -20,4 +20,4 @@ export default function server() {
     logPrefix: 'skeleton',
     files: watchFiles,
   });
-}
+};

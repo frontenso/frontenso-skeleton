@@ -1,16 +1,15 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
 const nanoid = require('nanoid').nanoid;
-
-import PATHS from '../paths';
-import { PRODUCTION } from '../config';
-
 const replace = require('gulp-replace');
 const fs = require('fs');
 const md5File = require('md5-file');
 
+const PATHS = require('../paths');
+const PRODUCTION = require('../config').PRODUCTION;
+
 const buildPath = PATHS.build.html.replace(/\/$/, '');
 
-export default function assetsVersion() {
+module.exports = function assetsVersion() {
   let checkedFiles = [];
 
   return gulp
@@ -57,4 +56,4 @@ export default function assetsVersion() {
       })
     )
     .pipe(gulp.dest(buildPath));
-}
+};

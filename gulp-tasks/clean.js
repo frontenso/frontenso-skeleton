@@ -1,7 +1,7 @@
-import del from 'del';
+const del = require('del');
 
-import PATHS from '../paths';
+const PATHS = require('../paths');
 
-export default function clean() {
+module.exports = function clean() {
   return del(PATHS.clean);
-}
+};

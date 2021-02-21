@@ -1,19 +1,19 @@
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import notifier from 'node-notifier';
-import postcss from 'gulp-postcss';
-import autoprefixer from 'autoprefixer';
-import sprites from 'postcss-sprites';
-import assets from 'postcss-assets';
-import sass from 'gulp-sass';
-import sourcemaps from 'gulp-sourcemaps';
-import cssmin from 'gulp-clean-css';
-import gulpif from 'gulp-if';
-import log from 'fancy-log';
-import colors from 'ansi-colors';
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const notifier = require('node-notifier');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const sprites = require('postcss-sprites');
+const assets = require('postcss-assets');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const cssmin = require('gulp-clean-css');
+const gulpif = require('gulp-if');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 
-import PATHS from '../paths';
-import { PRODUCTION } from '../config';
+const PATHS = require('../paths');
+const PRODUCTION = require('../config').PRODUCTION;
 
 const PROCESSORS = [
   autoprefixer({
@@ -28,19 +28,19 @@ const PROCESSORS = [
     spritePath: './build/assets/images/',
     retina: true,
     padding: 4,
-    filterBy: image =>
+    filterBy: (image) =>
       /sprites\/.*\.png$/gi.test(image.url)
         ? Promise.resolve()
         : Promise.reject(),
   }),
 ];
 
-export default function styles() {
+module.exports = function styles() {
   return gulp
     .src(PATHS.src.styles)
     .pipe(
       plumber({
-        errorHandler: function(err) {
+        errorHandler: function (err) {
           log.error(colors.red(err.message));
           notifier.notify({
             title: 'SASS compilation error',
@@ -62,4 +62,4 @@ export default function styles() {
     .pipe(gulpif(PRODUCTION, cssmin({ processImport: false })))
     .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
     .pipe(gulp.dest(PATHS.build.styles));
-}
+};

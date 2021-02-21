@@ -1,11 +1,11 @@
-import gulp from 'gulp';
-import gulpZip from 'gulp-zip';
+const gulp = require('gulp');
+const gulpZip = require('gulp-zip');
 
-import PATHS from '../paths';
+const PATHS = require('../paths');
 
-export default function zipArchive() {
+module.exports = function zipArchive() {
   return gulp
     .src(PATHS.build.html + '/**/*')
     .pipe(gulpZip(`${PATHS.build.html}.zip`))
     .pipe(gulp.dest('./'));
-}
+};

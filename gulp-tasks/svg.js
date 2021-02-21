@@ -1,16 +1,16 @@
-import gulp from 'gulp';
-import rename from 'gulp-rename';
-import svgstore from 'gulp-svgstore';
-import svgmin from 'gulp-svgmin';
-import path from 'path';
+const gulp = require('gulp');
+const rename = require('gulp-rename');
+const svgstore = require('gulp-svgstore');
+const svgmin = require('gulp-svgmin');
+const path = require('path');
 
-import PATHS from '../paths';
+const PATHS = require('../paths');
 
-export default function svg() {
+module.exports = function svg() {
   return gulp
     .src(PATHS.src.svg)
     .pipe(
-      svgmin(file => {
+      svgmin((file) => {
         const prefix = path.basename(
           file.relative,
           path.extname(file.relative)
@@ -34,4 +34,4 @@ export default function svg() {
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite.svg'))
     .pipe(gulp.dest(PATHS.build.svg));
-}
+};

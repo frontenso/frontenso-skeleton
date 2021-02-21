@@ -1,13 +1,13 @@
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import imagemin from 'gulp-imagemin';
-import pngquant from 'imagemin-pngquant';
-import imageminMozjpeg from 'imagemin-mozjpeg';
+const gulp = require('gulp');
+const gulpif = require('gulp-if');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+const imageminMozjpeg = require('imagemin-mozjpeg');
 
-import PATHS from '../paths';
-import * as CONFIG from '../config';
+const PATHS = require('../paths');
+const CONFIG = require('../config');
 
-export default function images() {
+module.exports = function images() {
   return gulp
     .src([
       PATHS.src.images,
@@ -36,4 +36,4 @@ export default function images() {
       )
     )
     .pipe(gulp.dest(PATHS.build.images));
-}
+};

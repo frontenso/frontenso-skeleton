@@ -1,15 +1,15 @@
-import gulpWatch from 'gulp-watch';
+const gulpWatch = require('gulp-watch');
 
-import PATHS from '../paths';
-import html from './html';
-import styles from './styles';
-import fonts from './fonts';
-import images from './images';
-import svg from './svg';
-import video from './video';
-import publicAssets from './public';
+const PATHS = require('../paths');
+const html = require('./html');
+const styles = require('./styles');
+const fonts = require('./fonts');
+const images = require('./images');
+const svg = require('./svg');
+const video = require('./video');
+const publicAssets = require('./public');
 
-export default function watch() {
+module.exports = function watch() {
   gulpWatch(PATHS.watch.nunj, html);
   gulpWatch([PATHS.watch.styles], styles);
   gulpWatch([PATHS.watch.fonts], fonts);
@@ -17,4 +17,4 @@ export default function watch() {
   gulpWatch([PATHS.watch.svg], svg);
   gulpWatch([PATHS.watch.videos], video);
   gulpWatch([PATHS.watch.public], publicAssets);
-}
+};
