@@ -63,6 +63,7 @@
     "yargs": "^16.1.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "browser-sync": "^2.26.13",
     "eslint": "^7.12.1",
     "eslint-loader": "^4.0.2",
