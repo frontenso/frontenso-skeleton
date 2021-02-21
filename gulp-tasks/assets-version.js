@@ -39,7 +39,7 @@ module.exports = function assetsVersion() {
           hash = md5File.sync(assetPath);
           isRealHash = true;
         } else {
-          hash = parseInt(nanoid());
+          hash = nanoid();
           isRealHash = false;
         }
 
