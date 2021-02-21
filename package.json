@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run validate"
+      "pre-commit": "npm run validate"
     }
   },
   "dependencies": {
