@@ -1,4 +1,6 @@
 import gulp from 'gulp';
+const nanoid = require('nanoid').nanoid;
+
 import PATHS from '../paths';
 import { PRODUCTION } from '../config';
 
@@ -14,7 +16,7 @@ export default function assetsVersion() {
   return gulp
     .src(buildPath + '/**/*.html')
     .pipe(
-      replace(/([\w\/]+\.[js|css]+\?)hash/gi, function(match) {
+      replace(/([\w\/]+\.[js|css]+\?)hash/gi, function (match) {
         let assetPath = __dirname;
 
         assetPath = assetPath.replace('gulp-tasks', buildPath);
@@ -38,7 +40,7 @@ export default function assetsVersion() {
           hash = md5File.sync(assetPath);
           isRealHash = true;
         } else {
-          hash = parseInt(Math.random() * new Date(), 10);
+          hash = parseInt(nanoid());
           isRealHash = false;
         }
 
