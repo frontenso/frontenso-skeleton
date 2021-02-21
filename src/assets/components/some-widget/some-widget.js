@@ -1,4 +1,6 @@
 /**
+ * Example widget
+ *
  * @class
  */
 class SomeWidget {
@@ -6,19 +8,22 @@ class SomeWidget {
   timeout = 2000;
 
   constructor() {
-    /** @type {Array} */
+    /** @type {HTMLElement[]} */
     this.itemArr = [];
 
     this.containerNode = document.querySelector('[data-widget]');
     if (!this.containerNode) {
       return;
     }
-    const itemEls = this.containerNode.querySelector('[data-widget-items]');
-    if (!itemEls) {
+    const itemContainer = this.containerNode.querySelector(
+      '[data-widget-items]'
+    );
+    if (!itemContainer) {
       return;
     }
 
-    this.itemArr = Array.from(itemEls.children);
+    // @ts-ignore
+    this.itemArr = Array.from(itemContainer.children);
 
     this.update();
 

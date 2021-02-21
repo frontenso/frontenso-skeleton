@@ -1,7 +1,15 @@
+/** @typedef {object} HandlerObj
+ * @property {Function} handler
+ * @property {object} context
+ *  */
+
 /**
  * @class
  */
 function Signal() {
+  /** @type {HandlerObj[]}
+   *
+   * */
   this.handlers = [];
 }
 
@@ -10,6 +18,11 @@ Signal.prototype = {
     throw new Error('Callback handler must be function!');
   },
 
+  /**
+   * @param {Function} handler
+   * @param {any} context
+   * @returns {any}
+   */
   add(handler, context) {
     if (typeof handler !== 'function') {
       this._throwError();
@@ -19,6 +32,10 @@ Signal.prototype = {
     return handler;
   },
 
+  /**
+   * @param {HandlerObj} handler
+   * @returns {*}
+   */
   remove(handler) {
     if (typeof handler !== 'function') {
       this._throwError();

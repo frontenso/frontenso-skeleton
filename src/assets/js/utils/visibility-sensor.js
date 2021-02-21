@@ -1,7 +1,13 @@
+/** @typedef {object} VisibilitySensorEntry
+ * @property {HTMLElement} node
+ * @property {Function} cb
+ * */
+
 /**
  * @class
  */
 class VisibilitySensor {
+  /** @type {VisibilitySensorEntry[]} */
   added = [];
 
   constructor() {
@@ -11,14 +17,14 @@ class VisibilitySensor {
   }
 
   /**
-   * @param {Array} entries
+   * @param {any[]} entries
    */
   update = (entries) => {
     entries.forEach((entry) => {
       const cb = this.added.find((v) => {
         return v.node === entry.target;
-      }).cb;
-      cb({ isVisible: entry.isIntersecting });
+      })?.cb;
+      cb && cb({ isVisible: entry.isIntersecting });
     });
   };
 
