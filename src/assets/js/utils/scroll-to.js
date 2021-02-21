@@ -15,7 +15,7 @@ const preserve = [ScrollToPlugin]; // prevent tree shaking
  * @param {boolean} [options.autoKill]
  * @param {Window | HTMLElement} [options.element]
  * @param {number} [options.offsetY]
- * @returns {void}
+ * @return {void}
  */
 export function customScrollTo(
   to,

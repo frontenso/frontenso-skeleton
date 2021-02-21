@@ -31,5 +31,12 @@
       }
     ]
   },
-  "plugins": []
+  "plugins": [],
+  "settings": {
+    "jsdoc": {
+      "tagNamePreference": {
+        "returns": "return"
+      }
+    }
+  }
 }

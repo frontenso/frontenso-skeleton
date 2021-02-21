@@ -2,15 +2,22 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "build/assets/js",
-    "strict": true,
+    "strict": false,
+    "alwaysStrict": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
     "allowJs": true,
     "checkJs": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
     "removeComments": true,
     "resolveJsonModule": true,
-    "watch": true
+    "watch": true,
+    "lib": ["dom", "es2017"]
   },
+  "include": ["src"],
   "exclude": [
     "node_modules",
     "webpack.config.js",

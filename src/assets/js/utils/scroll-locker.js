@@ -1,5 +1,5 @@
 /**
- * @returns {{unlock: Function, lock: Function} | null}
+ * @return {{unlock: Function, lock: Function} | null}
  */
 function ScrollLocker() {
   if (typeof document == 'undefined') {
@@ -9,14 +9,14 @@ function ScrollLocker() {
   const element = document.body;
 
   /**
-   * @returns {void}
+   * @return {void}
    */
   function lock() {
     element.style.overflow = 'hidden';
   }
 
   /**
-   * @returns {void}
+   * @return {void}
    */
   function unlock() {
     element.style.overflow = '';

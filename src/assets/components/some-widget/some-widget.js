@@ -22,8 +22,9 @@ class SomeWidget {
       return;
     }
 
-    // @ts-ignore
-    this.itemArr = Array.from(itemContainer.children);
+    this.itemArr = /** @type {HTMLElement[]} */ (Array.from(
+      itemContainer.children
+    ));
 
     this.update();
 
@@ -32,14 +33,14 @@ class SomeWidget {
     }, this.timeout);
   }
 
-  /** @returns {void} */
+  /** @return {void} */
   next() {
     this.currentIndex =
       this.currentIndex < this.itemArr.length - 1 ? this.currentIndex + 1 : 0;
     this.update();
   }
 
-  /** @returns {void} */
+  /** @return {void} */
   update() {
     this.itemArr.forEach((node) => {
       node.style.opacity = '0';

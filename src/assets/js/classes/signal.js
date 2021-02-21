@@ -21,7 +21,7 @@ Signal.prototype = {
   /**
    * @param {Function} handler
    * @param {any} context
-   * @returns {any}
+   * @return {any}
    */
   add(handler, context) {
     if (typeof handler !== 'function') {
@@ -34,7 +34,7 @@ Signal.prototype = {
 
   /**
    * @param {HandlerObj} handler
-   * @returns {*}
+   * @return {*}
    */
   remove(handler) {
     if (typeof handler !== 'function') {
