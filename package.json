@@ -5,12 +5,13 @@
   "description": "A template for static markup projects.",
   "scripts": {
     "start": "cross-env NODE_ENV=development npm-run-all --parallel gulp webpack",
-    "build": "cross-env NODE_ENV=production npm-run-all validate gulp:production webpack",
+    "build": "cross-env NODE_ENV=production npm-run-all validate:production gulp:production webpack",
     "zip": "cross-env NODE_ENV=production gulp zip",
     "format": "pretty-quick --staged",
     "lint:css": "stylelint \"src/**/*.{scss,sass}\"",
     "lint:js": "eslint --max-warnings 0 \"src/**/*.{jsx,js}\"",
     "validate": "npm-run-all --parallel format lint:css lint:js",
+    "validate:production": "npm-run-all --parallel lint:css lint:js",
     "webpack": "webpack --config webpack.config.js",
     "gulp": "gulp",
     "gulp:production": "gulp production"
