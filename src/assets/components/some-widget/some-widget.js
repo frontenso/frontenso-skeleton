@@ -1,12 +1,24 @@
+/**
+ * @class
+ */
 class SomeWidget {
   currentIndex = 0;
   timeout = 2000;
 
   constructor() {
+    /** @type {Array} */
+    this.itemArr = [];
+
     this.containerNode = document.querySelector('[data-widget]');
-    this.itemNodes = Array.from(
-      this.containerNode.querySelector('[data-widget-items]').children
-    );
+    if (!this.containerNode) {
+      return;
+    }
+    const itemEls = this.containerNode.querySelector('[data-widget-items]');
+    if (!itemEls) {
+      return;
+    }
+
+    this.itemArr = Array.from(itemEls.children);
 
     this.update();
 
@@ -15,17 +27,19 @@ class SomeWidget {
     }, this.timeout);
   }
 
+  /** @returns {void} */
   next() {
     this.currentIndex =
-      this.currentIndex < this.itemNodes.length - 1 ? this.currentIndex + 1 : 0;
+      this.currentIndex < this.itemArr.length - 1 ? this.currentIndex + 1 : 0;
     this.update();
   }
 
+  /** @returns {void} */
   update() {
-    this.itemNodes.forEach((node) => {
+    this.itemArr.forEach((node) => {
       node.style.opacity = '0';
     });
-    const currentItemNode = this.itemNodes[this.currentIndex];
+    const currentItemNode = this.itemArr[this.currentIndex];
     currentItemNode.style.opacity = '1';
   }
 }

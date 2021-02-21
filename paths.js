@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   build: {
     html: 'build',
     scripts: 'build/assets/js/',

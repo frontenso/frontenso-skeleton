@@ -6,7 +6,6 @@ import fonts from './gulp-tasks/fonts';
 import assetsVersion from './gulp-tasks/assets-version';
 import images from './gulp-tasks/images';
 import svg from './gulp-tasks/svg';
-import webpack from './gulp-tasks/webpack';
 import zip from './gulp-tasks/zip';
 import watch from './gulp-tasks/watch';
 import server from './gulp-tasks/server';
@@ -15,7 +14,7 @@ import publicAssets from './gulp-tasks/public';
 
 gulp.task(
   'build',
-  gulp.parallel(html, styles, fonts, images, svg, video, publicAssets, webpack)
+  gulp.parallel(html, styles, fonts, images, svg, video, publicAssets)
 );
 
 gulp.task('production', gulp.series(clean, 'build', assetsVersion));

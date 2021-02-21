@@ -1,7 +1,5 @@
 /**
- *
- * @returns {{unlock: function, lock: function} | null}
- * @constructor
+ * @returns {{unlock: Function, lock: Function} | null}
  */
 function ScrollLocker() {
   if (typeof document == 'undefined') {
@@ -10,10 +8,16 @@ function ScrollLocker() {
 
   const element = document.body;
 
+  /**
+   * @returns {void}
+   */
   function lock() {
     element.style.overflow = 'hidden';
   }
 
+  /**
+   * @returns {void}
+   */
   function unlock() {
     element.style.overflow = '';
   }
@@ -24,6 +28,6 @@ function ScrollLocker() {
   };
 }
 
-const scrollLocker = new ScrollLocker();
+const scrollLocker = ScrollLocker();
 
 export default scrollLocker;

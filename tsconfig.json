@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "build/assets/js",
+    "strict": true,
+    "allowJs": true,
+    "checkJs": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "watch": true,
+  },
+  "exclude": [
+    "node_modules",
+    "webpack.config.js",
+    "gulpfile.babel.js",
+    "gulp-tasks",
+    "src/assets/templates",
+    "build/"
+  ]
+}

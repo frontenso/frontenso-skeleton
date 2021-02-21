@@ -1,3 +1,6 @@
+/**
+ * @class
+ */
 class VisibilitySensor {
   added = [];
 
@@ -7,6 +10,9 @@ class VisibilitySensor {
     });
   }
 
+  /**
+   * @param {Array} entries
+   */
   update = (entries) => {
     entries.forEach((entry) => {
       const cb = this.added.find((v) => {
@@ -16,13 +22,21 @@ class VisibilitySensor {
     });
   };
 
+  /**
+   * @param {HTMLElement} node
+   * @param {Function} cb
+   */
   observe(node, cb) {
     this.observer.observe(node);
     this.added.push({ cb, node });
   }
 
+  /**
+   * @param {HTMLElement} node
+   */
   unobserve(node) {
     this.observer.unobserve(node);
+    node.querySelector('.cad');
     this.added = this.added.filter((v) => v.node !== node);
   }
 }

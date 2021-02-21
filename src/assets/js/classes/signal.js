@@ -1,3 +1,6 @@
+/**
+ * @class
+ */
 function Signal() {
   this.handlers = [];
 }

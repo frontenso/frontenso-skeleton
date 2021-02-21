@@ -1,3 +1,7 @@
-export const PRODUCTION = process.env.NODE_ENV === 'production'; // eslint-disable-line
+// eslint-disable-next-line
+const PRODUCTION = process.env.NODE_ENV === 'production';
 
-export const shouldCompressImages = PRODUCTION;
+module.exports = {
+  PRODUCTION,
+  shouldCompressImages: PRODUCTION,
+};

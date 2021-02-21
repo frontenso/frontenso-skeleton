@@ -6,7 +6,7 @@
     "jquery": true,
     "commonjs": true
   },
-  "extends": ["eslint:recommended", "gsap"],
+  "extends": ["eslint:recommended", "plugin:jsdoc/recommended"],
   "globals": {
     "cy": true
   },
@@ -14,7 +14,22 @@
     "no-class-assign": "off",
     "import/no-named-as-default": "off",
     "no-console": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "jsdoc/require-returns-description": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-property-description": "off",
+    "jsdoc/require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "ArrowFunctionExpression": true,
+          "ClassDeclaration": true,
+          "FunctionDeclaration": true,
+          "MethodDefinition": true
+        },
+        "checkConstructors": false
+      }
+    ]
   },
   "plugins": []
 }
