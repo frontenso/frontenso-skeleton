@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "checkJs": true
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "webpack.config.js",
+    "gulpfile.js",
+    "gulp-tasks",
+    "src/assets/templates",
+    "build/"
+  ]
+}
